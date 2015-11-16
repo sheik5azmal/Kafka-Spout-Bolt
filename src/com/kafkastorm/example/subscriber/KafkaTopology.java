@@ -11,10 +11,9 @@ import backtype.storm.spout.SchemeAsMultiScheme;
 import backtype.storm.topology.TopologyBuilder;
 
 public class KafkaTopology {
-
 	public static void main(String args[]) {
 		BrokerHosts zk = new ZkHosts("172.31.58.177:2181");
-		SpoutConfig spoutConf = new SpoutConfig(zk, "testJson",
+		SpoutConfig spoutConf = new SpoutConfig(zk, "sensor-msg",
 				"/kafkastorm", "discovery");
 		spoutConf.scheme = new SchemeAsMultiScheme(new StringScheme());
 		KafkaSpout spout = new KafkaSpout(spoutConf);
